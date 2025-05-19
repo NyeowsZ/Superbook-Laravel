@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\StaffController;
+namespace App\Http\Controllers\CashierController;
 
-use App\Models\Staff;
+use App\Models\Cashier;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -23,7 +23,7 @@ class AuthController extends Controller
 
         $data = $validator->validated();
 
-        if(Auth::guard('staff')->attempt($data)){
+        if(Auth::guard('cashier')->attempt($data)){
             $request->session()->regenerate();
 
             return redirect()->back()->with(['message' => 'Login successful']);
@@ -33,9 +33,9 @@ class AuthController extends Controller
 
     // Logout
     public function logout(){
-        Auth::guard('staff')->logout();
+        Auth::guard('cashier')->logout();
 
-        return redirect()->back()->with(['message' => 'Staff Successfully Created']);
+        return redirect()->back()->with(['message' => 'Cashier Successfully Logged out']);
     }
 
     // Register
@@ -43,7 +43,7 @@ class AuthController extends Controller
 
         // Input Validation
         $validator = Validator::make($request->all(),[
-            'username' => 'required|string|max:255|unique:staff,username',
+            'username' => 'required|string|max:255|unique:cashier,username',
             'firstname' => 'required|string|max:255',
             'lastname' => 'required|string|max:255',
             'middlename' => 'nullable|string|max:255',
@@ -60,12 +60,12 @@ class AuthController extends Controller
 
         if($validator->fails()){
             
-            return redirect('/staff')->withErrors($validator)->withInput();
+            return redirect('/cashier')->withErrors($validator)->withInput();
         }
 
-        Staff::create($data);
+        Cashier::create($data);
 
-        return redirect('/staff')->with(['message' => 'Successfully Created the Account']);
+        return redirect('/cashier')->with(['message' => 'Successfully Created the Account']);
 
         }
-}
+} 

@@ -41,12 +41,6 @@ return [
             'provider' => 'users',
         ],
 
-        // For Staff - Auth
-        'staff' => [
-        'driver' => 'session',
-        'provider' => 'staff',
-        ],
-
         // For Admin - Auth
         'admin' => [
             'driver' => 'session',
@@ -56,6 +50,12 @@ return [
         'customer' => [
             'driver' => 'session',
             'provider' => 'customer',
+        ],
+
+        // For Cashier - Auth
+        'cashier' => [
+        'driver' => 'session',
+        'provider' => 'cashier',
         ],
     ],
 
@@ -82,13 +82,6 @@ return [
             'model' => env('AUTH_MODEL', App\Models\Users::class),
         ],
 
-
-        // For Staff - Auth
-        'staff' => [
-        'driver' => 'eloquent',
-        'model' => App\Models\Staff::class,
-        ],
-
         'admin' => [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
@@ -97,6 +90,12 @@ return [
         'customer' => [
             'driver' => 'eloquent',
             'model' => App\Models\Customer::class,
+        ],
+
+        // For Cashier - Auth
+        'cashier' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\Cashier::class,
         ],
 
         // 'users' => [

@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 
-class Staff extends Authenticatable
+class Cashier extends Authenticatable
 {
-    protected $table = 'staff';
+    protected $table = 'cashier';
 
     protected $fillable = [
         'username',
@@ -26,4 +26,4 @@ class Staff extends Authenticatable
         'created_at' => 'datetime',
         'updated_at' => 'datetime'
     ];
-}
+} 
