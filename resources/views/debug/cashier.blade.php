@@ -50,6 +50,8 @@
                     <p><span class="font-semibold">First Name:</span> {{ Auth::guard('cashier')->user()->firstname }}</p>
                     <p><span class="font-semibold">Middle Name:</span> {{ Auth::guard('cashier')->user()->middlename }}</p>
                     <p><span class="font-semibold">Last Name:</span> {{ Auth::guard('cashier')->user()->lastname }}</p>
+                    <p><span class="font-semibold">Password:</span> {{ Auth::guard('cashier')->user()->password }}</p>
+
                 </div>
                 <form action="{{ route('cashier.logout') }}" method="post" class="mt-4"> @csrf <button class="w-full bg-gray-800 text-white py-2 rounded hover:bg-gray-900">Logout</button></form>
             </div>

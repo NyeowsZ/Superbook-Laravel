@@ -71,6 +71,8 @@
                     <p><span class="font-semibold">First Name:</span> {{ Auth::guard('customer')->user()->firstname }}</p>
                     <p><span class="font-semibold">Middle Name:</span> {{ Auth::guard('customer')->user()->middlename }}</p>
                     <p><span class="font-semibold">Last Name:</span> {{ Auth::guard('customer')->user()->lastname }}</p>
+                    <p><span class="font-semibold">Password:</span> {{ Auth::guard('customer')->user()->password }}</p>
+
                 </div>
                 <form action="{{ route('customer.logout') }}" method="post" class="mt-4"> @csrf <button class="w-full bg-gray-800 text-white py-2 rounded hover:bg-gray-900">Logout</button></form>
             </div>
