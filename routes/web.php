@@ -17,6 +17,14 @@ Route::get('/cashier', function () {
     return view('debug.cashier');
 });
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/form', function () {
+    return view('form');
+});
+
 // Admin
 Route::post('/admin/login', [AdminAuthController::class, 'login'])->name('admin.login');
 

@@ -36,7 +36,7 @@ class AuthController extends Controller
 
         //Auto Login After Registering
         Auth::guard('customer')->login($customer);
-        return redirect()->back()->with(['message' => 'Account Created Successfully']);
+        return redirect('/')->with(['message' => 'Account Created Successfully']);
     
     }
 
@@ -55,7 +55,7 @@ class AuthController extends Controller
 
         Auth::guard('customer')->attempt($data);
 
-        return redirect()->back()->with(['message' => 'Login Successful']);
+        return redirect('/')->with(['message' => 'Login Successful']);
     }
 
 

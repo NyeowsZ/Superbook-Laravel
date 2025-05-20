@@ -7,17 +7,23 @@
     <title>Cashier Panel</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-gray-100 min-h-screen flex items-center justify-center">
-    <nav class="fixed top-0 left-0 w-full bg-white shadow z-10">
-        <div class="max-w-2xl mx-auto flex justify-center space-x-6 py-3">
-            <a href="/admin" class="text-blue-700 font-semibold hover:underline">Admin</a>
-            <a href="/cashier" class="text-blue-700 font-semibold hover:underline">Cashier</a>
-            <a href="/customer" class="text-blue-700 font-semibold hover:underline">Customer</a>
+<body class="bg-neutral-900 min-h-screen text-white">
+    <!-- Navigation -->
+    <nav class="w-full bg-neutral-800 border-b border-neutral-700">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-center space-x-8 py-4">
+                <a href="/admin" class="text-white/80 font-semibold hover:text-white transition">Admin</a>
+                <a href="/cashier" class="text-red-500 font-semibold hover:text-red-400 transition">Cashier</a>
+                <a href="/customer" class="text-white/80 font-semibold hover:text-white transition">Customer</a>
+            </div>
         </div>
     </nav>
-    <div class="w-full max-w-md space-y-8 pt-24">
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        <!-- Status Messages -->
         @if ($errors->any())
-            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
+            <div class="mb-4 bg-red-500/10 border border-red-500/20 text-red-500 px-4 py-3 rounded-lg">
                 @foreach ($errors->all() as $error)
                     <p>{{ $error }}</p>
                 @endforeach
@@ -25,41 +31,60 @@
         @endif
 
         @if (session('message'))
-            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
+            <div class="mb-4 bg-green-500/10 border border-green-500/20 text-green-500 px-4 py-3 rounded-lg">
                 <p>{{ session('message') }}</p>
             </div>
         @endif
 
-        @if(!Auth::guard('cashier')->check())
-            <div class="bg-white shadow-md rounded-lg p-6">
-                <h1 class="text-2xl font-bold mb-4 text-center">Login Cashier</h1>
-                <form action="{{ route('cashier.login') }}" method="post" class="space-y-3">
-                    @csrf
-                    <input type="text" name="username" placeholder="Username" required class="w-full px-3 py-2 border rounded">
-                    <input type="password" name="password" placeholder="Password" required class="w-full px-3 py-2 border rounded">
-                    <button type="submit" class="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700">Login</button>
-                </form>
-            </div>
-        @endif
-
+        <!-- Login Status -->
         @auth('cashier')
-            <div class="bg-white shadow-md rounded-lg p-6 mt-4">
-                <h2 class="text-xl font-semibold mb-2">Cashier Info</h2>
-                <div class="space-y-1">
-                    <p><span class="font-semibold">Username:</span> {{ Auth::guard('cashier')->user()->username }}</p>
-                    <p><span class="font-semibold">First Name:</span> {{ Auth::guard('cashier')->user()->firstname }}</p>
-                    <p><span class="font-semibold">Middle Name:</span> {{ Auth::guard('cashier')->user()->middlename }}</p>
-                    <p><span class="font-semibold">Last Name:</span> {{ Auth::guard('cashier')->user()->lastname }}</p>
-                    <p><span class="font-semibold">Password:</span> {{ Auth::guard('cashier')->user()->password }}</p>
-
-                </div>
-                <form action="{{ route('cashier.logout') }}" method="post" class="mt-4"> @csrf <button class="w-full bg-gray-800 text-white py-2 rounded hover:bg-gray-900">Logout</button></form>
+            <div class="mb-6 bg-red-500/10 border border-red-500/20 text-red-500 px-4 py-3 rounded-lg text-center font-medium">
+                Cashier is logged in
             </div>
         @endauth
-
         @guest('cashier')
-            <div class="text-center text-gray-500 mt-4">Cashier is logged out.</div>
+            <div class="mb-6 bg-neutral-800/50 border border-neutral-700 text-white/70 px-4 py-3 rounded-lg text-center font-medium">
+                Cashier is logged out
+            </div>
         @endguest
+
+        <!-- Main Grid Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Left Column -->
+            <div class="space-y-6">
+                @if(!Auth::guard('cashier')->check())
+                    <div class="bg-neutral-800 border border-neutral-700 shadow-lg rounded-lg p-6">
+                        <h1 class="text-2xl font-bold mb-6 text-center text-white">Login Cashier</h1>
+                        <form action="{{ route('cashier.login') }}" method="post" class="space-y-4">
+                            @csrf
+                            <input type="text" name="username" placeholder="Username" required class="w-full px-4 py-2 bg-neutral-700/50 border border-neutral-600 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 text-white placeholder-white/50">
+                            <input type="password" name="password" placeholder="Password" required class="w-full px-4 py-2 bg-neutral-700/50 border border-neutral-600 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 text-white placeholder-white/50">
+                            <button type="submit" class="w-full bg-red-500 text-white py-3 rounded-lg hover:bg-red-600 transition duration-200 font-medium">Login</button>
+                        </form>
+                    </div>
+                @endif
+            </div>
+
+            <!-- Right Column -->
+            <div class="space-y-6">
+                @auth('cashier')
+                    <div class="bg-neutral-800 border border-neutral-700 shadow-lg rounded-lg p-6">
+                        <h2 class="text-xl font-bold mb-4 text-white">Cashier Info</h2>
+                        <div class="space-y-2">
+                            <p><span class="font-medium text-white/70">Username:</span> <span class="text-white">{{ Auth::guard('cashier')->user()->username }}</span></p>
+                            <p><span class="font-medium text-white/70">First Name:</span> <span class="text-white">{{ Auth::guard('cashier')->user()->firstname }}</span></p>
+                            <p><span class="font-medium text-white/70">Middle Name:</span> <span class="text-white">{{ Auth::guard('cashier')->user()->middlename }}</span></p>
+                            <p><span class="font-medium text-white/70">Last Name:</span> <span class="text-white">{{ Auth::guard('cashier')->user()->lastname }}</span></p>
+                            <p><span class="font-medium text-white/70">Password:</span> <span class="text-white">{{ Auth::guard('cashier')->user()->password }}</span></p>
+                        </div>
+                        <form action="{{ route('cashier.logout') }}" method="post" class="mt-6">
+                            @csrf
+                            <button class="w-full bg-neutral-700 text-white py-3 rounded-lg hover:bg-neutral-600 transition duration-200 font-medium">Logout</button>
+                        </form>
+                    </div>
+                @endauth
+            </div>
+        </div>
     </div>
 </body>
 </html> 

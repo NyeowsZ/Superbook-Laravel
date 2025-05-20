@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superbook</title>
+  <link href="style.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/31949a3546.js" crossorigin="anonymous"></script>
+
+
+
+</head>
+<body class="bg-neutral-50 text-white ">
+    <nav class="p-2 flex justify-between items-center bg-neutral-800 shadow-[0_5px_5px_black] z-50 sticky top-0" id="navbar">
+    </nav>
+
+    <div class="product-container min-h-[100vh] pb-5" >
+      <nav class="sidebar flex flex-col w-60 h-[100vh] fixed shadow-xl shadow-red-500 z-20">
+        <div class="flex flex-col items-center justify-center mt-5 px-5" >
+          <h3 class="text-xl font-semibold mb-2 border-b-2 border-red-500 w-full text-center">Type</h3>
+        
+          <div class="flex flex-col gap-2 justify-center">
+            <label class="flex flex-col items-center gap-2 text-lg cursor-pointer">
+              <input type="radio" name="type" class="sr-only peer" checked/>
+              <span class="border-2 border-red-500 peer-checked:bg-red-500 peer-checked:shadow-[0_0_10px_#fb2c36]  px-4 py-1 rounded-2xl hover:bg-red-500 transition-all ">
+                All
+              </span>
+            </label>
+
+            <div class="flex justify-center gap-2">
+              <label class="flex items-center gap-2 text-lg cursor-pointer">
+                <input type="radio" name="type" class="sr-only peer" />
+                <span class="border-2 border-red-500 peer-checked:bg-red-500 peer-checked:shadow-[0_0_10px_#fb2c36]  px-4 py-1 rounded-2xl hover:bg-red-500 transition-all ">
+                  Manga
+                </span>
+              </label>
+  
+              <label class="flex items-center gap-2 text-lg cursor-pointer">
+                <input type="radio" name="type" class="sr-only peer" />
+                <span class="border-2 border-red-500 peer-checked:bg-red-500 peer-checked:shadow-[0_0_10px_#fb2c36]  px-4 py-1 rounded-2xl hover:bg-red-500 transition-all ">
+                  Novel
+                </span>
+              </label>
+            </div>
+            
+          </div>
+        </div>
+
+        <div class="flex flex-col items-center justify-center mt-10 px-5 gap-2 scrollable text-center" >
+            <h3 class="text-xl font-semibold mb-2 border-b-2 border-red-500 w-full text-center">Genre</h3>
+
+            <div class="flex flex-wrap gap-2 w-full justify-center overflow-y-auto flex-[1] pl-4 max-h-[280px]">
+              <label class="flex items-center gap-2 text-lg cursor-pointer">
+                <input type="checkbox" name="genre" class="sr-only peer">
+                <span class="border-2 border-red-500 peer-checked:bg-red-500 px-4 py-1 rounded-2xl hover:bg-red-500 transition-all">
+                    Action
+                </span>
+            </label>
+            
+            <label class="flex items-center gap-2 text-lg cursor-pointer">
+                <input type="checkbox" name="genre" class="sr-only peer">
+                <span class="border-2 border-red-500 peer-checked:bg-red-500 px-4 py-1 rounded-2xl hover:bg-red-500 transition-all">
+                    Romance
+                </span>
+            </label>
+            
+            <label class="flex items-center gap-2 text-lg cursor-pointer">
+                <input type="checkbox" name="genre" class="sr-only peer">
+                <span class="border-2 border-red-500 peer-checked:bg-red-500 px-4 py-1 rounded-2xl hover:bg-red-500 transition-all">
+                    Slice Of Life
+                </span>
+            </label>
+            
+            <label class="flex items-center gap-2 text-lg cursor-pointer">
+                <input type="checkbox" name="genre" class="sr-only peer">
+                <span class="border-2 border-red-500 peer-checked:bg-red-500 px-4 py-1 rounded-2xl hover:bg-red-500 transition-all">
+                    Fantasy
+                </span>
+            </label>
+            
+            <label class="flex items-center gap-2 text-lg cursor-pointer">
+                <input type="checkbox" name="genre" class="sr-only peer">
+                <span class="border-2 border-red-500 peer-checked:bg-red-500 px-4 py-1 rounded-2xl hover:bg-red-500 transition-all">
+                    Horror
+                </span>
+            </label>
+            
+            <label class="flex items-center gap-2 text-lg cursor-pointer">
+                <input type="checkbox" name="genre" class="sr-only peer">
+                <span class="border-2 border-red-500 peer-checked:bg-red-500 px-4 py-1 rounded-2xl hover:bg-red-500 transition-all">
+                    Mystery
+                </span>
+            </label>
+            
+            <label class="flex items-center gap-2 text-lg cursor-pointer">
+                <input type="checkbox" name="genre" class="sr-only peer">
+                <span class="border-2 border-red-500 peer-checked:bg-red-500 px-4 py-1 rounded-2xl hover:bg-red-500 transition-all">
+                    Sci-Fi
+                </span>
+            </label>
+            
+            <label class="flex items-center gap-2 text-lg cursor-pointer">
+                <input type="checkbox" name="genre" class="sr-only peer">
+                <span class="border-2 border-red-500 peer-checked:bg-red-500 px-4 py-1 rounded-2xl hover:bg-red-500 transition-all">
+                    Thriller
+                </span>
+            </label>
+            
+            <label class="flex items-center gap-2 text-lg cursor-pointer">
+                <input type="checkbox" name="genre" class="sr-only peer">
+                <span class="border-2 border-red-500 peer-checked:bg-red-500 px-4 py-1 rounded-2xl hover:bg-red-500 transition-all">
+                    Non-Fiction
+                </span>
+            </label>
+          </div>
+        </div>
+      </nav>
+
+
+      <main class="ml-60">
+
+        <div class="flex justify-center py-5 px-96 text-xl">
+          <input type="text" name="" placeholder="Search Book Title, Author" class="outline-0 border-b-2 border-red-500 w-full">
+          <button class="flex items-center bg-red-500 px-3 rounded-br rounded-t">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+            </svg></button>
+        </div>
+
+        <div class="mt-5 px-5">
+          <h3 class="text-2xl font-semibold border-b-2 border-red-500">Best Sellers</h3>
+
+          <div class="flex gap-5 mt-5">
+            <div class="h-[16rem] w-[12rem] bg-amber-200 relative rounded overflow-hidden">
+              <div class="bg-amber-800 absolute bottom-0 w-full h-30 p-2">
+                <h3 class="text-xl font-semibold line-clamp-2 h-[3.5rem]">Attack On Titan</h3>
+                <p>Volume 1-9</p>
+              </div>
+            </div>
+
+            <div class="h-[16rem] w-[12rem] bg-amber-200 relative rounded overflow-hidden">
+              <div class="bg-amber-800 absolute bottom-0 w-full h-30 p-2">
+                <h3 class="text-xl font-semibold line-clamp-2 h-[3.5rem]">Frieren: The Ending of the Hero's Journey</h3>
+                <p>Volume 1-6</p>
+              </div>
+            </div>
+
+            <div class="h-[16rem] w-[12rem] bg-amber-200 relative rounded overflow-hidden">
+              <div class="bg-amber-800 absolute bottom-0 w-full h-30 p-2">
+                <h3 class="text-xl font-semibold line-clamp-2 h-[3.5rem]">The Beginner after the End</h3>
+                <p>Volume 1-2</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="mt-10 px-5">
+          <h3 class="text-2xl font-semibold border-b-2 border-red-500">You May Like</h3>
+
+          <div class="flex gap-5 mt-5">
+            <div class="h-[16rem] w-[12rem] bg-amber-200 relative rounded overflow-hidden">
+              <div class="bg-amber-800 absolute bottom-0 w-full h-30 p-2">
+                <h3 class="text-xl font-semibold line-clamp-2 h-[3.5rem]">Attack On Titan</h3>
+                <p>Volume 1-9</p>
+              </div>
+            </div>
+
+            <div class="h-[16rem] w-[12rem] bg-amber-200 relative rounded overflow-hidden">
+              <div class="bg-amber-800 absolute bottom-0 w-full h-30 p-2">
+                <h3 class="text-xl font-semibold line-clamp-2 h-[3.5rem]">Frieren: The Ending of the Hero's Journey</h3>
+                <p>Volume 1-6</p>
+              </div>
+            </div>
+
+            <div class="h-[16rem] w-[12rem] bg-amber-200 relative rounded overflow-hidden">
+              <div class="bg-amber-800 absolute bottom-0 w-full h-30 p-2">
+                <h3 class="text-xl font-semibold line-clamp-2 h-[3.5rem]">The Beginner after the End</h3>
+                <p>Volume 1-2</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="mt-10 px-5">
+          <h3 class="text-2xl font-semibold border-b-2 border-red-500">Manga</h3>
+
+          <div class="flex gap-5 mt-5">
+            <div class="h-[16rem] w-[12rem] bg-amber-200 relative rounded overflow-hidden">
+              <div class="bg-amber-800 absolute bottom-0 w-full h-30 p-2">
+                <h3 class="text-xl font-semibold line-clamp-2 h-[3.5rem]">Attack On Titan</h3>
+                <p>Volume 1-9</p>
+              </div>
+            </div>
+
+            <div class="h-[16rem] w-[12rem] bg-amber-200 relative rounded overflow-hidden">
+              <div class="bg-amber-800 absolute bottom-0 w-full h-30 p-2">
+                <h3 class="text-xl font-semibold line-clamp-2 h-[3.5rem]">Frieren: The Ending of the Hero's Journey</h3>
+                <p>Volume 1-6</p>
+              </div>
+            </div>
+
+            <div class="h-[16rem] w-[12rem] bg-amber-200 relative rounded overflow-hidden">
+              <div class="bg-amber-800 absolute bottom-0 w-full h-30 p-2">
+                <h3 class="text-xl font-semibold line-clamp-2 h-[3.5rem]">The Beginner after the End</h3>
+                <p>Volume 1-2</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="mt-10 px-5">
+          <h3 class="text-2xl font-semibold border-b-2 border-red-500">Novels</h3>
+
+          <div class="flex gap-5 mt-5">
+            <div class="h-[16rem] w-[12rem] bg-amber-200 relative rounded overflow-hidden">
+              <div class="bg-amber-800 absolute bottom-0 w-full h-30 p-2">
+                <h3 class="text-xl font-semibold line-clamp-2 h-[3.5rem]">Attack On Titan</h3>
+                <p>Volume 1-9</p>
+              </div>
+            </div>
+
+            <div class="h-[16rem] w-[12rem] bg-amber-200 relative rounded overflow-hidden">
+              <div class="bg-amber-800 absolute bottom-0 w-full h-30 p-2">
+                <h3 class="text-xl font-semibold line-clamp-2 h-[3.5rem]">Frieren: The Ending of the Hero's Journey</h3>
+                <p>Volume 1-6</p>
+              </div>
+            </div>
+
+            <div class="h-[16rem] w-[12rem] bg-amber-200 relative rounded overflow-hidden">
+              <div class="bg-amber-800 absolute bottom-0 w-full h-30 p-2">
+                <h3 class="text-xl font-semibold line-clamp-2 h-[3.5rem]">The Beginner after the End</h3>
+                <p>Volume 1-2</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+      </main>
+    </div>
+    
+
+    <footer class="text-center p-4 bg-neutral-800 z-50 relative"  id="footer">
+    </footer>
+</body>
+</html>
+
+<script>
+  fetch('extension/nav.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('navbar').innerHTML = data;
+    })
+    .catch(err => console.error('Error loading nav:', err));
+
+  fetch('extension/footer.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('footer').innerHTML = data;
+    })
+    .catch(err => console.error('Error loading footer:', err));
+</script>

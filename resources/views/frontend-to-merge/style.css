@@ -1,24 +1,9 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import 'tailwindcss';
+/* In your global CSS file (e.g., styles.css) */
 @tailwind utilities;
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
 
-@font-face {
-    font-family: 'Poppins';
-    src: url('Poppins/Poppins-Regular.ttf');
-}
-
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
-    
-    --color-bg: var(--color-neutral-900);
-    --color-primary: var(--color-white);
-    --color-accent: var(--color-red-500);
-}
 
 *{
     box-sizing: border-box;
@@ -34,7 +19,7 @@ button{
 }
 
 .btn-nav{
-    @apply px-4 py-2 cursor-pointer border-b-3 border-b-transparent hover:border-b-accent transition-all duration-300;
+    @apply px-4 py-2 cursor-pointer border-b-3 border-b-transparent hover:border-b-orange-400 transition-all duration-300;
 }
 
 /* .card-template::after{
@@ -55,11 +40,11 @@ button{
   }
 
   .card-template p{
-    @apply text-accent font-semibold text-xl;
+    @apply text-orange-400 font-semibold text-xl;
   }
 
   .card-title {
-    @apply font-semibold text-2xl border-b-1 border-accent;
+    @apply font-semibold text-2xl border-b-1 border-orange-400;
   }
   .card-image {
     @apply  shadow-[2px_2px_10px_black,2px_2px_10px_black,2px_2px_10px_black];
@@ -67,6 +52,31 @@ button{
   .card-image img {
     @apply object-cover h-[300px] w-full;
   }
+
+.intro-container{
+    background-image: url("img/inpo-minimal.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.collection-container{
+    background-image: url("img/inspo-full-1.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.company-container{
+    background-image: url("img/inspo-right.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.review-container{
+  background-image: url("img/inspo-full.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
 @keyframes scroll {
     0% {
       transform: translateX(0%);
@@ -103,12 +113,13 @@ button{
   }
   
   .scrollable::-webkit-scrollbar-thumb {
-    background-color: var(--color-red-500);
+    background-color: #fb2c36; /* Tailwind orange-400 */
     border-radius: 6px;
   }
 
   /* Optional: Firefox support */
 .scrollable {
   scrollbar-width: thin;
-  scrollbar-color: var(--color-red-500) transparent; /* thumb track */
+  scrollbar-color: #fb2c36 transparent; /* thumb track */
 }
+

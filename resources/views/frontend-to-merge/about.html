@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superbook - About Us</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/31949a3546.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body class="bg-neutral-50 text-white">
+    <!-- Navbar -->
+    <div id="navbar"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <div class="relative h-[40vh] bg-cover bg-center bg-no-repeat shadow-md shadow-black" style="background-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2070&auto=format&fit=crop')">
+            <div class="absolute inset-0 bg-black/60"></div>
+            <div class="relative z-10 h-full flex flex-col items-center justify-center gap-5">
+                <h1 class="text-4xl font-bold text-center border-b-4 pb-2 border-orange-400">About Superbook</h1>
+                <p class="text-xl text-center max-w-2xl">Your Gateway to Worlds Beyond Words</p>
+            </div>
+        </div>  
+
+        <!-- Our Story Section -->
+        <div class="py-16 px-10 bg-neutral-900">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8 border-b-2 border-orange-400 pb-2 inline-block">Our Story</h2>
+                <div class="space-y-6 text-lg">
+                    <p>Founded in 2024, Superbook emerged from a simple yet powerful idea: to create a haven for book lovers where the magic of storytelling knows no bounds. What began as a small collection of manga and novels has blossomed into a vibrant community of readers and dreamers.</p>
+                    <p>Our journey started with a passion for bringing together the best of both Eastern and Western literature, creating a unique space where manga enthusiasts and novel readers could find their next adventure. Today, we're proud to offer an extensive collection of over 400 books, including 100+ manga series and 200+ novels that have captured the hearts of readers worldwide.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Our Mission Section -->
+        <div class="py-16 px-10 bg-neutral-800">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8 border-b-2 border-orange-400 pb-2 inline-block">Our Mission</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-neutral-900 p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold mb-4 text-orange-400">Curating Stories</h3>
+                        <p>We carefully select each title in our collection, ensuring that every book we offer has the power to transport readers to new worlds and perspectives.</p>
+                    </div>
+                    <div class="bg-neutral-900 p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold mb-4 text-orange-400">Building Community</h3>
+                        <p>We're more than just a bookstore - we're a community where readers can share their love for stories and discover new favorites together.</p>
+                    </div>
+                    <div class="bg-neutral-900 p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold mb-4 text-orange-400">Quality Service</h3>
+                        <p>We're committed to providing exceptional service, making it easy for our customers to find exactly what they're looking for.</p>
+                    </div>
+                    <div class="bg-neutral-900 p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold mb-4 text-orange-400">Cultural Bridge</h3>
+                        <p>We strive to bridge the gap between Eastern and Western literature, bringing diverse stories and perspectives to our readers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Section -->
+        <div class="py-16 px-10 bg-neutral-900">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8 border-b-2 border-orange-400 pb-2 inline-block">Our Team</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-orange-400/20 flex items-center justify-center">
+                            <span class="text-4xl">👨‍💼</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">John Smith</h3>
+                        <p class="text-orange-400">Founder & CEO</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-orange-400/20 flex items-center justify-center">
+                            <span class="text-4xl">👩‍💼</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Sarah Johnson</h3>
+                        <p class="text-orange-400">Head Curator</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-orange-400/20 flex items-center justify-center">
+                            <span class="text-4xl">👨‍💻</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Mike Chen</h3>
+                        <p class="text-orange-400">Community Manager</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer"></footer>
+
+    <script>
+        // Load navbar
+        fetch('extension/nav.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+                document.getElementById('nav-about').classList.add('active');
+            })
+            .catch(err => console.error('Error loading nav:', err));
+
+        // Load footer
+        fetch('extension/footer.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            })
+            .catch(err => console.error('Error loading footer:', err));
+    </script>
+</body>
+</html> 

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superbook - Products</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/31949a3546.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body class="bg-neutral-50 text-white">
+    <!-- Navbar -->
+    <div id="navbar"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <div class="relative h-[40vh] bg-[url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center bg-no-repeat shadow-md shadow-black">
+            <div class="absolute inset-0 bg-black/60"></div>
+            <div class="relative z-10 h-full flex flex-col items-center justify-center gap-5">
+                <h1 class="text-4xl font-bold text-center border-b-4 pb-2 border-orange-400">Explore Our Collection</h1>
+                <p class="text-xl text-center max-w-2xl">Discover a world of stories with our extensive collection of <span class="text-orange-400 font-medium">Mangas & Novels</span></p>
+            </div>
+        </div>
+
+        <!-- Search and Filters -->
+        <div class="bg-neutral-900 py-8 px-10">
+            <div class="max-w-6xl mx-auto">
+                <!-- Search Bar -->
+                <div class="flex justify-center gap-2 mb-5">
+                    <div class="relative flex-1 max-w-2xl">
+                        <input type="text" 
+                               placeholder="Search by title, author, or genre..." 
+                               class="w-full px-4 py-3 rounded-lg bg-neutral-800 border-2 border-orange-400 focus:outline-none focus:border-orange-500 text-white">
+                        <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-orange-400 p-2 rounded-lg hover:bg-orange-500 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Filter Tags -->
+                <div class="p-5 rounded-lg bg-neutral-800">
+                    <div class="max-w-7xl mx-auto">
+                        <div class="flex flex-col gap-4">
+                            <!-- Filter Toggle Button -->
+                            <button id="filterToggle" class="flex items-center gap-2 text-orange-400 hover:text-orange-300 transition-colors">
+                                <i class="fas fa-filter"></i>
+                                <span>Show Filters</span>
+                            </button>
+
+                            <!-- Filter Tags (Hidden by default) -->
+                            <div id="filterTags" class="hidden flex flex-wrap gap-2">
+                                <button class="filter-btn active px-4 py-2 rounded-full bg-orange-400 text-white hover:bg-orange-500 transition-colors" data-filter="all">All</button>
+                                <button class="filter-btn px-4 py-2 rounded-full bg-neutral-700 text-white hover:bg-orange-400 transition-colors" data-filter="manga">Manga</button>
+                                <button class="filter-btn px-4 py-2 rounded-full bg-neutral-700 text-white hover:bg-orange-400 transition-colors" data-filter="novel">Novel</button>
+                                <button class="filter-btn px-4 py-2 rounded-full bg-neutral-700 text-white hover:bg-orange-400 transition-colors" data-filter="fantasy">Fantasy</button>
+                                <button class="filter-btn px-4 py-2 rounded-full bg-neutral-700 text-white hover:bg-orange-400 transition-colors" data-filter="romance">Romance</button>
+                                <button class="filter-btn px-4 py-2 rounded-full bg-neutral-700 text-white hover:bg-orange-400 transition-colors" data-filter="action">Action</button>
+                                <button class="filter-btn px-4 py-2 rounded-full bg-neutral-700 text-white hover:bg-orange-400 transition-colors" data-filter="drama">Drama</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Books -->
+        <div class="py-10 px-10 bg-neutral-900">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-2xl font-bold mb-6 border-b-2 border-orange-400 pb-2 inline-block">Featured Books</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="books-container">
+                    <!-- Book Card -->
+                    <div class="group book-card" data-categories="manga fantasy">
+                        <div class="relative overflow-hidden rounded-lg shadow-lg shadow-black/50 w-[240px] h-[360px]">
+                            <img src="uploads/frieren.jfif" alt="Frieren" class="w-[240px] h-[360px] object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div class="absolute bottom-0 p-3">
+                                    <h3 class="text-lg font-bold">Frieren</h3>
+                                    <p class="text-orange-400 text-sm">Fantasy • Manga</p>
+                                    <p class="text-sm mt-2">A story about an elf mage's journey...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book Card -->
+                    <div class="group book-card" data-categories="novel fantasy">
+                        <div class="relative overflow-hidden rounded-lg shadow-lg shadow-black/50 w-[240px] h-[360px]">
+                            <img src="uploads/harrypotter.jfif" alt="Harry Potter" class="w-[240px] h-[360px] object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div class="absolute bottom-0 p-3">
+                                    <h3 class="text-lg font-bold">Harry Potter</h3>
+                                    <p class="text-orange-400 text-sm">Fantasy • Novel</p>
+                                    <p class="text-sm mt-2">The magical journey of a young wizard...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book Card -->
+                    <div class="group book-card" data-categories="manga romance">
+                        <div class="relative overflow-hidden rounded-lg shadow-lg shadow-black/50 w-[240px] h-[360px]">
+                            <img src="uploads/wotakoi.jfif" alt="Wotakoi" class="w-[240px] h-[360px] object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div class="absolute bottom-0 p-3">
+                                    <h3 class="text-lg font-bold">Wotakoi</h3>
+                                    <p class="text-orange-400 text-sm">Romance • Manga</p>
+                                    <p class="text-sm mt-2">A love story between otaku coworkers...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book Card -->
+                    <div class="group book-card" data-categories="manga romance">
+                        <div class="relative overflow-hidden rounded-lg shadow-lg shadow-black/50 w-[240px] h-[360px]">
+                            <img src="uploads/heartstopper.jfif" alt="Heartstopper" class="w-[240px] h-[360px] object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div class="absolute bottom-0 p-3">
+                                    <h3 class="text-lg font-bold">Heartstopper</h3>
+                                    <p class="text-orange-400 text-sm">Romance • Manga</p>
+                                    <p class="text-sm mt-2">A sweet story about friendship and love...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categories Section -->
+        <div class="py-10 px-10 bg-neutral-800">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-2xl font-bold mb-6 border-b-2 border-orange-400 pb-2 inline-block">Browse by Category</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Category Card -->
+                    <div class="relative h-[200px] rounded-lg overflow-hidden group">
+                        <img src="uploads/wotakoi.jfif" alt="Manga" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <h3 class="text-2xl font-bold">Manga</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category Card -->
+                    <div class="relative h-[200px] rounded-lg overflow-hidden group">
+                        <img src="uploads/harrypotter.jfif" alt="Novels" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <h3 class="text-2xl font-bold">Novels</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category Card -->
+                    <div class="relative h-[200px] rounded-lg overflow-hidden group">
+                        <img src="uploads/frieren.jfif" alt="Fantasy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <h3 class="text-2xl font-bold">Fantasy</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- More Books Section -->
+        <div class="py-10 px-10 bg-neutral-900">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-2xl font-bold mb-6 border-b-2 border-orange-400 pb-2 inline-block">More Books</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 gap-y-10" id="more-books-container">
+                    <!-- Book Card -->
+                    <div class="group book-card" data-categories="manga action">
+                        <div class="relative overflow-hidden rounded-lg shadow-lg shadow-black/50 w-[240px] h-[360px]">
+                            <img src="uploads/frieren.jfif" alt="Attack on Titan" class="w-[240px] h-[360px] object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div class="absolute bottom-0 p-3">
+                                    <h3 class="text-lg font-bold">Attack on Titan</h3>
+                                    <p class="text-orange-400 text-sm">Action • Manga</p>
+                                    <p class="text-sm mt-2">Humanity's last stand against the titans...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book Card -->
+                    <div class="group book-card" data-categories="novel fantasy">
+                        <div class="relative overflow-hidden rounded-lg shadow-lg shadow-black/50 w-[240px] h-[360px]">
+                            <img src="uploads/harrypotter.jfif" alt="The Hobbit" class="w-[240px] h-[360px] object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div class="absolute bottom-0 p-3">
+                                    <h3 class="text-lg font-bold">The Hobbit</h3>
+                                    <p class="text-orange-400 text-sm">Fantasy • Novel</p>
+                                    <p class="text-sm mt-2">A hobbit's unexpected journey...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book Card -->
+                    <div class="group book-card" data-categories="manga romance">
+                        <div class="relative overflow-hidden rounded-lg shadow-lg shadow-black/50 w-[240px] h-[360px]">
+                            <img src="uploads/wotakoi.jfif" alt="Kimi ni Todoke" class="w-[240px] h-[360px] object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div class="absolute bottom-0 p-3">
+                                    <h3 class="text-lg font-bold">Kimi ni Todoke</h3>
+                                    <p class="text-orange-400 text-sm">Romance • Manga</p>
+                                    <p class="text-sm mt-2">A shy girl's journey to friendship...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book Card -->
+                    <div class="group book-card" data-categories="manga drama">
+                        <div class="relative overflow-hidden rounded-lg shadow-lg shadow-black/50 w-[240px] h-[360px]">
+                            <img src="uploads/heartstopper.jfif" alt="Blue Period" class="w-[240px] h-[360px] object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div class="absolute bottom-0 p-3">
+                                    <h3 class="text-lg font-bold">Blue Period</h3>
+                                    <p class="text-orange-400 text-sm">Drama • Manga</p>
+                                    <p class="text-sm mt-2">A student's passion for art...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book Card -->
+                    <div class="group book-card" data-categories="novel fantasy">
+                        <div class="relative overflow-hidden rounded-lg shadow-lg shadow-black/50 w-[240px] h-[360px]">
+                            <img src="uploads/frieren.jfif" alt="The Lord of the Rings" class="w-[240px] h-[360px] object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div class="absolute bottom-0 p-3">
+                                    <h3 class="text-lg font-bold">The Lord of the Rings</h3>
+                                    <p class="text-orange-400 text-sm">Fantasy • Novel</p>
+                                    <p class="text-sm mt-2">An epic tale of Middle-earth...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book Card -->
+                    <div class="group book-card" data-categories="novel drama">
+                        <div class="relative overflow-hidden rounded-lg shadow-lg shadow-black/50 w-[240px] h-[360px]">
+                            <img src="uploads/harrypotter.jfif" alt="The Great Gatsby" class="w-[240px] h-[360px] object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div class="absolute bottom-0 p-3">
+                                    <h3 class="text-lg font-bold">The Great Gatsby</h3>
+                                    <p class="text-orange-400 text-sm">Drama • Novel</p>
+                                    <p class="text-sm mt-2">A story of the American Dream...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book Card -->
+                    <div class="group book-card" data-categories="manga action">
+                        <div class="relative overflow-hidden rounded-lg shadow-lg shadow-black/50 w-[240px] h-[360px]">
+                            <img src="uploads/wotakoi.jfif" alt="Yona of the Dawn" class="w-[240px] h-[360px] object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div class="absolute bottom-0 p-3">
+                                    <h3 class="text-lg font-bold">Yona of the Dawn</h3>
+                                    <p class="text-orange-400 text-sm">Action • Manga</p>
+                                    <p class="text-sm mt-2">A princess's journey to reclaim her kingdom...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book Card -->
+                    <div class="group book-card" data-categories="manga drama">
+                        <div class="relative overflow-hidden rounded-lg shadow-lg shadow-black/50 w-[240px] h-[360px]">
+                            <img src="uploads/heartstopper.jfif" alt="The Silent Voice" class="w-[240px] h-[360px] object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div class="absolute bottom-0 p-3">
+                                    <h3 class="text-lg font-bold">The Silent Voice</h3>
+                                    <p class="text-orange-400 text-sm">Drama • Manga</p>
+                                    <p class="text-sm mt-2">A story of redemption and friendship...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer"></footer>
+
+    <script>
+        // Load navbar
+        fetch('extension/nav.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+                document.getElementById('nav-products').classList.add('active');
+            })
+            .catch(err => console.error('Error loading nav:', err));
+
+        // Load footer
+        fetch('extension/footer.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            })
+            .catch(err => console.error('Error loading footer:', err));
+
+        // Filter toggle functionality
+        const filterToggle = document.getElementById('filterToggle');
+        const filterTags = document.getElementById('filterTags');
+        let isFilterVisible = false;
+
+        filterToggle.addEventListener('click', () => {
+            isFilterVisible = !isFilterVisible;
+            filterTags.classList.toggle('hidden');
+            filterToggle.querySelector('span').textContent = isFilterVisible ? 'Hide Filters' : 'Show Filters';
+        });
+
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const books = document.querySelectorAll('.book-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active state of buttons
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active', 'bg-orange-400');
+                    btn.classList.add('bg-neutral-700');
+                });
+                button.classList.add('active', 'bg-orange-400');
+                button.classList.remove('bg-neutral-700');
+
+                const filter = button.getAttribute('data-filter');
+
+                books.forEach(book => {
+                    const categories = book.getAttribute('data-categories').split(' ');
+                    if (filter === 'all' || categories.includes(filter)) {
+                        book.style.display = 'block';
+                    } else {
+                        book.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+
+            books.forEach(book => {
+                const title = book.querySelector('h3').textContent.toLowerCase();
+                const description = book.querySelector('p').textContent.toLowerCase();
+                const categories = book.getAttribute('data-categories').toLowerCase();
+
+                if (title.includes(searchTerm) || description.includes(searchTerm) || categories.includes(searchTerm)) {
+                    book.style.display = 'block';
+                } else {
+                    book.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

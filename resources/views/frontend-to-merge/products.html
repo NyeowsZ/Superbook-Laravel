@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/31949a3546.js" crossorigin="anonymous"></script>
+</head>
+<body class="relative">
+
+    <!-- Filter Overlay -->
+    <div class="absolute size-full z-50 hidden" id="filterOverlay">
+
+        <div class="size-full absolute backdrop-blur-xs"></div>
+
+        <div class="relative z-10 flex items-center justify-center h-[100vh]">
+            <form method="get" class="w-30 h-30 bg-orange-400 px-30">
+                
+            </form>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <div id="navbar"></div>
+
+    <!-- Search and Filters -->
+    <div class="text-white bg-[url('img/inspo-full.jpg')] bg-cover bg-center bg-no-repeat py-5 px-100">
+
+        <!-- Search Input -->
+        <div class="flex justify-center text-2xl">
+            <input type="text" placeholder="Search Book Title or Author" class="border-b-2 border-orange-400 outline-0 w-[38ch] text-xl">
+            <!-- Search Btn -->
+            <button class="bg-orange-400 px-2 py-1 rounded-br-lg rounded-tr-lg rounded-tl-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                  </svg>
+            </button>
+            
+            <!-- Filter Btn -->
+            <button class="bg-orange-400 px-2 py-1 rounded-lg ml-2" onclick="toggleOverlay()">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
+                  </svg>
+            </button>
+        </div>
+
+        <!-- Filters -->
+        <div class="w-full mt-2.5 flex gap-2 text-base">
+            <button class="px-2 py-1 bg-orange-400 border-1 border-transparent hover:bg-transparent hover:border-orange-400 transition-all rounded-xl relative max-w-[120px] group">
+                <span class="group-hover:invisible">Manga</span>
+                <span class="absolute inset-0 flex items-center justify-center invisible group-hover:visible rounded-xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                      </svg>                  
+                </span>
+        </button>
+            <button class="px-2 py-1 bg-orange-400 border-1 border-transparent hover:bg-transparent hover:border-orange-400 transition-all rounded-xl relative max-w-[120px] group">
+                <span class="group-hover:invisible">Novel</span>
+                <span class="absolute inset-0 flex items-center justify-center invisible group-hover:visible rounded-xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                      </svg>                  
+                </span>
+        </button>
+            <button class="px-2 py-1 bg-orange-400 border-1 border-transparent hover:bg-transparent hover:border-orange-400 transition-all rounded-xl relative group max-w-[120px]">
+                <span class="group-hover:invisible">Slice Of Life</span>
+            <span class="absolute inset-0 flex items-center justify-center invisible group-hover:visible rounded-xl">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                  </svg>                  
+            </span>
+        </button>
+        </div>
+    </div>
+
+     
+
+    <!-- You May Like -->
+    <div class="bg-[url('img/inspo-full.jpg')] bg-cover bg-center bg-no-repeat shadow-[inset_0_0_20px_black] px-50 py-5 text-white">
+        <!-- Header -->
+        <h1 class="text-xl font-semibold py-1 px-2 border-orange-400 border-b-2">You May Like</h1>
+
+        <!-- Books Container -->
+        <div class="overflow-hidden mt-5">
+
+            <!-- Books Grid -->
+            <div class="grid grid-cols-4">
+
+                <!-- Card -->
+                <div class="text-base w-[200px]">
+                    <!-- Image -->
+                    <div class="  drop-shadow-[0_0_5px_black,0_0_5px_black,0_0_5px_black] cursor-pointer overflow-hidden">
+                        <div class="bg-[url('uploads/heartstopper.jfif')] bg-center bg-cover w-[200px] h-[300px] hover:scale-[1.1] transition-all"></div>
+                    </div>
+
+                     <!-- Book Info -->
+                    <p class="text-neutral-400 mt-2.5">2012</p>
+                    <h1 class="font-semibold text-lg line-clamp-2 ">Heartstopper</h1>
+
+                    <div class="flex justify-between items-end">
+                        <p class="text-neutral-400 mt-2.5 ">Romance</p>
+                        <p class="bg-neutral-500 text-sm py-1 px-2 rounded-xl">Manga</p>
+                    </div>
+
+                </div>
+
+                <!-- 2nd Card -->
+                <div class="text-base w-[200px]">
+                    <!-- Image -->
+                     <div class="bg-[url('uploads/harrypotter.jfif')] bg-center bg-cover w-[200px] h-[300px] bg-gray-500 drop-shadow-[0_0_5px_black,0_0_5px_black,0_0_5px_black] cursor-pointer"></div>
+
+                     <!-- Book Info -->
+                    <p class="text-neutral-400 mt-2.5">2002</p>
+                    <h1 class="font-semibold text-lg line-clamp-2 ">Harry Potter and the Philosopher's Stone</h1>
+
+                    <div class="flex justify-between items-end">
+                        <p class="text-neutral-400 mt-2.5 ">Fantasy</p>
+                        <p class="bg-neutral-500 text-sm py-1 px-2 rounded-xl">Novel</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Manga -->
+    <div class="bg-[url('img/inspo-full.jpg')] bg-cover bg-center bg-no-repeat px-50 py-5 text-white">
+        <!-- Header -->
+        <button class="flex items-center justify-between px-2 py-1 w-full border-orange-400 border-b-2 hover:bg-[rgb(255,255,255,0.1)] transition-all">
+            <h1 class="font-semibold text-xl">Manga</h1>
+            <p class="text-lg">See More</p>
+        </button>
+
+        <!-- Books Container -->
+        <div class="overflow-hidden mt-5">
+
+            <!-- Books Grid -->
+            <div class="grid grid-cols-4">
+
+                <!-- Card -->
+                <div class="text-base w-[200px]">
+                    <!-- Image -->
+                     <div class="bg-[url('uploads/heartstopper.jfif')] bg-center bg-cover w-[200px] h-[300px] drop-shadow-[0_0_5px_black,0_0_5px_black,0_0_5px_black] cursor-pointer relative">
+                     </div>
+
+                     <!-- Book Info -->
+                    <p class="text-neutral-400 mt-2.5">2012</p>
+                    <h1 class="font-semibold text-lg line-clamp-2 ">Heartstopper</h1>
+
+                    <div class="flex justify-between items-end">
+                        <p class="text-neutral-400 mt-2.5 ">Romance</p>
+                        <p class="bg-neutral-500 text-sm py-1 px-2 rounded-xl">Manga</p>
+                    </div>
+
+                </div>
+
+                <!-- 2nd Card -->
+                <div class="text-base w-[200px]">
+                    <!-- Image -->
+                     <div class="bg-[url('uploads/frieren.jfif')] bg-center bg-cover w-[200px] h-[300px] bg-gray-500 drop-shadow-[0_0_5px_black,0_0_5px_black,0_0_5px_black] cursor-pointer"></div>
+
+                     <!-- Book Info -->
+                    <p class="text-neutral-400 mt-2.5">2017</p>
+                    <h1 class="font-semibold text-lg line-clamp-2 ">Frieren</h1>
+
+                    <div class="flex justify-between items-end">
+                        <p class="text-neutral-400 mt-2.5 ">Fantasy</p>
+                        <p class="bg-neutral-500 text-sm py-1 px-2 rounded-xl">Manga</p>
+                    </div>
+                </div>
+
+                <!-- 3rd Card -->
+                <div class="text-base w-[200px]">
+                    <!-- Image -->
+                     <div class="bg-[url('uploads/wotakoi.jfif')] bg-center bg-cover w-[200px] h-[300px] drop-shadow-[0_0_5px_black,0_0_5px_black,0_0_5px_black] cursor-pointer"></div>
+
+                     <!-- Book Info -->
+                    <p class="text-neutral-400 mt-2.5">2010</p>
+                    <h1 class="font-semibold text-lg line-clamp-2 ">Wotakoi</h1>
+
+                    <div class="flex justify-between items-end">
+                        <p class="text-neutral-400 mt-2.5 ">Romance</p>
+                        <p class="bg-neutral-500 text-sm py-1 px-2 rounded-xl">Manga</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Novel -->
+    <div class="bg-[url('img/inspo-full.jpg')] bg-cover bg-center bg-no-repeat px-50 py-5 text-white shadow-[inset_0_0_20px_black]">
+        <!-- Header -->
+        <button class="flex items-center justify-between px-2 py-1 w-full border-orange-400 border-b-2 hover:bg-[rgb(255,255,255,0.1)] transition-all">
+            <h1 class="font-semibold text-xl">Novel</h1>
+            <p class="text-lg">See More</p>
+        </button>
+
+        <!-- Books Container -->
+        <div class="overflow-hidden mt-5">
+
+            <!-- Books Grid -->
+            <div class="grid grid-cols-4">
+
+                <!-- Card -->
+                <div class="text-base w-[200px]">
+                    <!-- Image -->
+                     <div class="bg-[url('uploads/harrypotter.jfif')] bg-center bg-cover w-[200px] h-[300px] drop-shadow-[0_0_5px_black,0_0_5px_black,0_0_5px_black] cursor-pointer relative">
+                     </div>
+
+                     <!-- Book Info -->
+                    <p class="text-neutral-400 mt-2.5">2012</p>
+                    <h1 class="font-semibold text-lg line-clamp-2 ">Harry Potter and the Philosopher's Stone</h1>
+
+                    <div class="flex justify-between items-end">
+                        <p class="text-neutral-400 mt-2.5 ">Fantasy</p>
+                        <p class="bg-neutral-500 text-sm py-1 px-2 rounded-xl">Novel</p>
+                    </div>
+
+                </div>
+
+                <!-- 2nd Card -->
+                <div class="text-base w-[200px]">
+                    <!-- Image -->
+                     <div class="bg-[url('uploads/another.jfif')] bg-center bg-cover w-[200px] h-[300px] bg-gray-500 drop-shadow-[0_0_5px_black,0_0_5px_black,0_0_5px_black] cursor-pointer"></div>
+
+                     <!-- Book Info -->
+                    <p class="text-neutral-400 mt-2.5">2017</p>
+                    <h1 class="font-semibold text-lg line-clamp-2 ">Another</h1>
+
+                    <div class="flex justify-between items-end">
+                        <p class="text-neutral-400 mt-2.5 ">Fiction</p>
+                        <p class="bg-neutral-500 text-sm py-1 px-2 rounded-xl">Novel</p>
+                    </div>
+                </div>
+
+                <!-- 3rd Card -->
+                <div class="text-base w-[200px]">
+                    <!-- Image -->
+                     <div class="bg-[url('uploads/greatgatsby.jfif')] bg-center bg-cover w-[200px] h-[300px] drop-shadow-[0_0_5px_black,0_0_5px_black,0_0_5px_black] cursor-pointer"></div>
+
+                     <!-- Book Info -->
+                    <p class="text-neutral-400 mt-2.5">2010</p>
+                    <h1 class="font-semibold text-lg line-clamp-2 ">The Great Gatsby</h1>
+
+                    <div class="flex justify-between items-end">
+                        <p class="text-neutral-400 mt-2.5 ">Tragedy</p>
+                        <p class="bg-neutral-500 text-sm py-1 px-2 rounded-xl">Novel</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div id="footer"></div>
+</body>
+</html>
+
+<script>
+    fetch('extension/nav.html')
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById('navbar').innerHTML = data;
+            document.getElementById('nav-products').classList.add('active');
+        })
+        .catch();
+
+    fetch('extension/footer.html')
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById('footer').innerHTML = data;
+        })
+
+
+        function toggleOverlay() {
+    const overlay = document.getElementById("filterOverlay");
+    const body = document.body;
+
+    const isHidden = overlay.classList.contains("hidden");
+
+    if (isHidden) {
+        overlay.classList.remove("hidden");
+        body.style.overflow = "hidden"; // Disable scroll
+    } else {
+        overlay.classList.add("hidden");
+        body.style.overflow = ""; // Re-enable scroll
+    }
+}
+
+</script>

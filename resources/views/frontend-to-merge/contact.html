@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superbook - Contact Us</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/31949a3546.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body class="bg-neutral-50 text-white">
+    <!-- Navbar -->
+    <div id="navbar"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <div class="relative h-[40vh] bg-cover bg-center bg-no-repeat shadow-md shadow-black" style="background-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2070&auto=format&fit=crop')">
+            <div class="absolute inset-0 bg-black/60"></div>
+            <div class="relative z-10 h-full flex flex-col items-center justify-center gap-5">
+                <h1 class="text-4xl font-bold text-center border-b-4 pb-2 border-orange-400">Contact Us</h1>
+                <p class="text-xl text-center max-w-2xl">We'd Love to Hear From You</p>
+            </div>
+        </div>
+
+        <!-- Contact Form Section -->
+        <div class=" px-10 bg-neutral-900">
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12 py-10">
+                    <!-- Contact Information -->
+                    <div class="space-y-8">
+                        <h2 class="text-3xl font-bold mb-8 border-b-2 border-orange-400 pb-2 inline-block">Get in Touch</h2>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-full bg-orange-400/20 flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-orange-400"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2">Visit Us</h3>
+                                    <p>123 Book Street<br>Reading City, RC 12345<br>United States</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-full bg-orange-400/20 flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-phone text-orange-400"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2">Call Us</h3>
+                                    <p>+1 (555) 123-4567<br>Mon-Fri: 9AM - 6PM</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-full bg-orange-400/20 flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-envelope text-orange-400"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2">Email Us</h3>
+                                    <p>info@superbook.com<br>support@superbook.com</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-full bg-orange-400/20 flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-share-alt text-orange-400"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2">Follow Us</h3>
+                                    <div class="flex gap-4">
+                                        <a href="#" class="text-orange-400 hover:text-orange-300">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a href="#" class="text-orange-400 hover:text-orange-300">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                        <a href="#" class="text-orange-400 hover:text-orange-300">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                        <a href="#" class="text-orange-400 hover:text-orange-300">
+                                            <i class="fab fa-discord"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div>
+                        <h2 class="text-3xl font-bold mb-8 border-b-2 border-orange-400 pb-2 inline-block">Send a Message</h2>
+                        <div class="space-y-6">
+                            <!-- Google Sign In Section -->
+                            <div class="bg-neutral-800/50 p-6 rounded-lg border-2 border-orange-400/30">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <i class="fas fa-info-circle text-orange-400 text-xl"></i>
+                                    <p class="text-sm">Please sign in with your Google account to send us a message.</p>
+                                </div>
+                                <button type="button" class="w-full flex items-center justify-center gap-3 bg-white text-gray-800 px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors font-medium">
+                                    <img src="https://www.google.com/favicon.ico" alt="Google" class="w-5 h-5">
+                                    Sign in with Google
+                                </button>
+                            </div>
+
+                            <!-- Form (initially disabled) -->
+                            <form class="space-y-6 opacity-50 pointer-events-none" id="contactForm">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium mb-2">Your Name</label>
+                                    <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg bg-neutral-800 border-2 border-orange-400 focus:outline-none focus:border-orange-500 text-white" required>
+                                </div>
+                                <div>
+                                    <label for="subject" class="block text-sm font-medium mb-2">Subject</label>
+                                    <input type="text" id="subject" name="subject" class="w-full px-4 py-3 rounded-lg bg-neutral-800 border-2 border-orange-400 focus:outline-none focus:border-orange-500 text-white" required>
+                                </div>
+                                <div>
+                                    <label for="message" class="block text-sm font-medium mb-2">Your Message</label>
+                                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 rounded-lg bg-neutral-800 border-2 border-orange-400 focus:outline-none focus:border-orange-500 text-white" required></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-orange-400 text-white px-8 py-4 rounded-lg hover:bg-orange-500 transition-colors font-semibold text-lg">
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Map Section -->
+        <div class="py-5 px-10 bg-neutral-800">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8 border-b-2 border-orange-400 pb-2 inline-block">Find Us</h2>
+                <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15691.865658914696!2d124.03072385000002!3d10.50331145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a9ba65563b8e17%3A0x583c2a5e6bc58db7!2sCebu%20Technological%20University%20-%20Danao%20Campus!5e0!3m2!1sen!2sph!4v1746714673161!5m2!1sen!2sph" 
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        >
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer"></footer>
+
+    <script>
+        // Load navbar
+        fetch('extension/nav.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+                document.getElementById('nav-contact').classList.add('active');
+            })
+            .catch(err => console.error('Error loading nav:', err));
+
+        // Load footer
+        fetch('extension/footer.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            })
+            .catch(err => console.error('Error loading footer:', err));
+
+        // Placeholder for Google Sign In functionality
+        document.querySelector('button[type="button"]').addEventListener('click', () => {
+            // This will be replaced with actual Google Sign In implementation
+            const form = document.getElementById('contactForm');
+            form.classList.remove('opacity-50', 'pointer-events-none');
+        });
+    </script>
+</body>
+</html> 
