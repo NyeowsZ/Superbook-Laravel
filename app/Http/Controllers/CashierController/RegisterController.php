@@ -5,39 +5,10 @@ namespace App\Http\Controllers\CashierController;
 use App\Models\Cashier;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
-class AuthController extends Controller
+class RegisterController extends Controller
 {
-    //Login
-    public function login(Request $request){
-        $validator = Validator::make($request->all(), [
-            'username' => 'required|string|max:255',
-            'password' => 'required|string|max:255'
-        ]);
-
-        if($validator->fails()){
-            return redirect()->back()->withErrors($validator);
-        }
-
-        $data = $validator->validated();
-
-        if(Auth::guard('cashier')->attempt($data)){
-            $request->session()->regenerate();
-
-            return redirect()->back()->with(['message' => 'Login successful']);
-        }
-        
-    }
-
-    // Logout
-    public function logout(){
-        Auth::guard('cashier')->logout();
-
-        return redirect()->back()->with(['message' => 'Cashier Successfully Logged out']);
-    }
-
     // Register
     public function register(Request $request){
 
@@ -68,4 +39,4 @@ class AuthController extends Controller
         return redirect('/cashier')->with(['message' => 'Successfully Created the Account']);
 
         }
-} 
+}

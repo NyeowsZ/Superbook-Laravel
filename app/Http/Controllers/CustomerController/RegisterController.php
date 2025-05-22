@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
-class AuthController extends Controller
+class RegisterController extends Controller
 {
     // Register
     public function register(Request $request){
@@ -39,30 +39,4 @@ class AuthController extends Controller
         return redirect('/')->with(['message' => 'Account Created Successfully']);
     
     }
-
-    // Login
-    public function login(Request $request){
-        $validator = Validator::make($request->all(), [
-            'username' => 'required|string|max:255',
-            'password' => 'required|string|max:255'
-        ]);
-
-        if($validator->fails()){
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-
-        $data = $validator->validated();
-
-        Auth::guard('customer')->attempt($data);
-
-        return redirect('/')->with(['message' => 'Login Successful']);
-    }
-
-
-    // Logout
-    public function logout(){
-        Auth::guard('customer')->logout();
-        return redirect()->back()->with(['message' => 'Logout Successful']);
-    }
-
 }

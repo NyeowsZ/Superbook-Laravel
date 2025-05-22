@@ -38,7 +38,6 @@
     <div class="fixed top-20 inset-x-0 z-50 flex justify-center items-center animate-fade-in-down">
         <div class="bg-green-500/90 text-white px-6 py-3 rounded-lg shadow-lg max-w-lg border-l-4 border-green-700">
             <div class="flex items-center">
-                <i class="fas fa-check-circle text-2xl mr-3"></i>
                 <div>
                     <h3 class="font-bold">Success</h3>
                     <p>{{ session('message') }}</p>

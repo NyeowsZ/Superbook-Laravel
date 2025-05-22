@@ -12,9 +12,9 @@
     <nav class="w-full bg-neutral-800 border-b border-neutral-700">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex justify-center space-x-8 py-4">
-                <a href="/admin" class="text-white/80 font-semibold hover:text-white transition">Admin</a>
-                <a href="/cashier" class="text-red-500 font-semibold hover:text-red-400 transition">Cashier</a>
-                <a href="/customer" class="text-white/80 font-semibold hover:text-white transition">Customer</a>
+                <a href="/debug/admin" class="text-white/80 font-semibold hover:text-white transition">Admin</a>
+                <a href="/debug/cashier" class="text-red-500 font-semibold hover:text-red-400 transition">Cashier</a>
+                <a href="/debug/customer" class="text-white/80 font-semibold hover:text-white transition">Customer</a>
             </div>
         </div>
     </nav>
